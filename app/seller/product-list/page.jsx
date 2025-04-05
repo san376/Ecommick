@@ -6,6 +6,7 @@ import { useAppContext } from "@/context/AppContext";
 import Footer from "@/components/seller/Footer";
 import Loading from "@/components/Loading";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const ProductList = () => {
 
@@ -21,17 +22,22 @@ const ProductList = () => {
       const {data} = await axios.get('/api/product/seller-list',{headers:{Authorization: `Bearer ${token}`}})
 
       if(data.success){
-        
+        setProducts(data.products)
+        setLoading(false)
+      } else{
+        toast.error(data.message)
       }
 
     } catch (error) {
-      
+      toast.error(error.message)
     }
   }
 
   useEffect(() => {
-    fetchSellerProduct();
-  }, [])
+    if(user){
+      fetchSellerProduct();
+    }
+  }, [user])
 
   return (
     <div className="flex-1 min-h-screen flex flex-col justify-between">
