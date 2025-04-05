@@ -1,8 +1,10 @@
+import connectDB from '@/config/db'
 import authSeller from '@/lib/authSeller'
+import Product from '@/models/Product'
 import { getAuth } from '@clerk/nextjs/server'
 import {v2 as cloudinary} from 'cloudinary'
 import { NextResponse } from 'next/server'
-import { resolve } from 'styled-jsx/css'
+
 
 // configure clodinary
 cloudinary.config({
@@ -58,9 +60,21 @@ export async function POST(request){
 
         const image = result.map(result=> result.secure_url)
 
+        await connectDB()
+        const newProduct = await Product.create({
+            userId,
+            name,
+            description,
+            category,
+            price:Number(price),
+            offerPrice:Number(offerPrice),
+            image,
+            date: Date.now()
+        })
         
+        return NextResponse.json({success: true, message:'Upload successful', newProduct})
 
     } catch (error) {
-        
+        return NextResponse.json({success: false, message: error.message})
     }
 }
