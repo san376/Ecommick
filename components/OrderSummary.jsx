@@ -12,6 +12,9 @@ const OrderSummary = () => {
 
   const [userAddresses, setUserAddresses] = useState([]);
 
+
+   
+
   const fetchUserAddresses = async () => {
     try {
 
@@ -30,6 +33,9 @@ const OrderSummary = () => {
       toast.error(error.message)
     }
   }
+
+
+
 
   const handleAddressSelect = (address) => {
     setSelectedAddress(address);
