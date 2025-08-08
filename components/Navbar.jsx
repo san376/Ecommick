@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import { assets, BagIcon, BoxIcon, CartIcon, HomeIcon} from "@/assets/assets";
+import { assets, BagIcon, BoxIcon, CartIcon, HomeIcon,} from "@/assets/assets";
 import Link from "next/link"
 import { useAppContext } from "@/context/AppContext";
 import Image from "next/image";
@@ -14,9 +14,11 @@ const Navbar = () => {
   return (
     <nav className="flex items-center justify-between px-6 md:px-16 lg:px-32 py-3 border-b border-gray-300 text-gray-700">
       <Image
-        className="cursor-pointer w-28 md:w-32"
+        // className="cursor-pointer w-28 md:w-40"
+        className="cursor-pointer w-[53px] md:w-[190px]"
+
         onClick={() => router.push('/')}
-        src={assets.logo}
+        src={assets.Icon}
         alt="logo"
       />
       <div className="flex items-center gap-4 lg:gap-8 max-md:hidden">
