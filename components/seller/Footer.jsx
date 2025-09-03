@@ -6,7 +6,15 @@ const Footer = () => {
   return (
     <div className="flex md:flex-row flex-col-reverse items-center justify-between text-left w-full px-10">
       <div className="flex items-center gap-4">
-        <Image className="hidden md:block" src={assets.logo} alt="logo" />
+        {/* <Image className="hidden md:block" src={assets.Icon} alt="logo" /> */}
+        <Image
+          // className="cursor-pointer w-28 md:w-40"
+          className="cursor-pointer w-[53px] md:w-[190px]"
+
+          onClick={() => router.push('/')}
+          src={assets.Icon}
+          alt="logo"
+        />
         <div className="hidden md:block h-7 w-px bg-gray-500/60"></div>
         <p className="py-4 text-center text-xs md:text-sm text-gray-500">
           Copyright 2025 © greatstack.dev All Right Reserved.
