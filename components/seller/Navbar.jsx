@@ -12,7 +12,7 @@ const Navbar = () => {
       {/* <Image onClick={() => router.push('/')} className='w-28 lg:w-32 cursor-pointer' src={assets.Icon} alt="" /> */}
       <Image
         // className="cursor-pointer w-28 md:w-40"
-        className="cursor-pointer w-[53px] md:w-[190px]"
+        className="cursor-pointer w-[150px] md:w-[190px]"
 
         onClick={() => router.push('/')}
         src={assets.Icon}
